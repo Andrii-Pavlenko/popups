@@ -4,7 +4,6 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const app = express();
 const { Client } = require("pg");
-const cors = require("cors");
 const port = +process.env.PORT || 5000;
 
 const client = new Client({
@@ -12,7 +11,6 @@ const client = new Client({
 });
 
 client.connect();
-// app.use(cors());
 app.get("/api/text", (req, res) => {
   client.query("SELECT * FROM text ORDER BY id", (err, dbResponse) => {
     if (err) {

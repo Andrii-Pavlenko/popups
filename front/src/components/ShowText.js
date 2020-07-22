@@ -54,7 +54,9 @@ const ShowText = ({
         </Segment>
       );
     } else if (texts && texts.length) {
-      return texts.map((text, i) => <Segment key={i}>{text}</Segment>);
+      return texts.map((text, i) => (
+        <Segment key={i}>{text}</Segment>
+      ));
     } else {
       return (
         <Segment inverted color="red">
@@ -68,7 +70,11 @@ const ShowText = ({
     <div className="buttonSegment">
       <Popup
         trigger={<Button content="Show text" />}
-        content={<Segment.Group>{toShow()}</Segment.Group>}
+        content={
+          <Segment.Group>
+            {toShow()}
+          </Segment.Group>
+        }
         on="click"
         open={showPopup}
         onClose={handleClose}
